@@ -1,0 +1,50 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:SimpleCove.Properties"
+        xmlns:Controls="clr-namespace:SimpleCove.Controls"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="SimpleCove.MainWindow"
+        Title="SimpleCove" Height="350" Width="419" StateChanged="Window_StateChanged" Icon="Icons/NetDrives.ico">
+    <Window.Resources>
+        <properties:Settings x:Key="Settings" />
+    </Window.Resources>
+
+    <Grid Margin="0,0,2,0">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="613*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Apply" HorizontalAlignment="Left" Margin="324,286,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Height="22"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="244,286,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" Height="22"/>
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click"/>
+        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Width="75" Click="btnStop_Click"/>
+        <Label x:Name="lblStatus" Content="STATUS" HorizontalAlignment="Left" Margin="85,224,0,0" VerticalAlignment="Top" Width="136" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtFilePath" Text="{Binding Default.FilePath, Source={StaticResource Settings}}" HorizontalAlignment="Left" Height="23" Margin="91,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
+        <Label Content="Target:" HorizontalAlignment="Left" Margin="39,57,0,0" VerticalAlignment="Top" Height="26" Width="47"/>
+        <Button Content="Browse..." HorizontalAlignment="Left" Margin="315,58,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnBrowse_Click"/>
+        <Label Content="Start Time:"  HorizontalAlignment="Left" Margin="19,119,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDestinationPath" Text="{Binding Default.DestinationPath, Source={StaticResource Settings}}" HorizontalAlignment="Left" Height="23" Margin="91,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
+        <Label Content="Destination:" HorizontalAlignment="Left" Margin="13,88,0,0" VerticalAlignment="Top" Height="26" Width="73"/>
+        <xctk:DateTimePicker x:Name="dtpStartTime"  Text="{Binding Default.StartTime, Source={StaticResource Settings}}"
+        	Format="Custom" 
+        	FormatString="hh:mm tt MM/dd/yyyy " 
+        	Margin="91,121,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="173" Height="23"/>
+        <RadioButton GroupName="rbDestTypeGroup" x:Name="rbDestType1" IsChecked="{Binding Default.DestType1, Source={StaticResource Settings}}" Content="FTP Server" HorizontalAlignment="Left" Margin="91,166,0,0" VerticalAlignment="Top" Checked="rbDestType1_Checked"/>
+        <RadioButton GroupName="rbDestTypeGroup" x:Name="rbDestType2" IsChecked="{Binding Default.DestType2, Source={StaticResource Settings}}" Content="Local Drive" HorizontalAlignment="Left" Margin="91,187,0,0" VerticalAlignment="Top" Checked="rbDestType2_Checked"/>
+        <Button Content="Browse..." x:Name="btnBrowseFTP" HorizontalAlignment="Left" Margin="315,91,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnBrowseDest_Click"/>
+        <Button Content="FTP Settings..." x:Name="btnFTPSettings" HorizontalAlignment="Left" Margin="182,163,0,0" VerticalAlignment="Top" Width="94" Height="22" Click="btnFTPSettings_Click"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="164,286,0,0" VerticalAlignment="Top" Width="75" Click="btnOK_Click" Height="22"/>
+        <Label Name="lblDebug" Content="[ DEBUG MODE ]" HorizontalAlignment="Left" Margin="156,10,0,0" VerticalAlignment="Top" Width="108" Foreground="Black" FontWeight="Bold" BorderThickness="2"/>
+        <ComboBox Name="ddInterval" HorizontalAlignment="Left" Margin="270,121,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="{Binding Default.Interval, Source={StaticResource Settings}}">
+            <ComboBoxItem Content="Hourly"></ComboBoxItem>
+            <ComboBoxItem Content="Daily"></ComboBoxItem>
+            <ComboBoxItem Content="Weekly"></ComboBoxItem>
+            <ComboBoxItem Content="Monthly"></ComboBoxItem>
+            <ComboBoxItem Content="Yearly"></ComboBoxItem>
+        </ComboBox>
+
+    </Grid>
+</Window>

@@ -1,0 +1,11 @@
+﻿<Window x:Class="SimpleCove.FtpBrowser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Choose Destination" Height="310" Width="300">
+    <Grid>
+        <TreeView x:Name="FtpTreeView" HorizontalAlignment="Left" Height="223" Margin="10,10,0,0" VerticalAlignment="Top" Width="272"/>
+        <Button Content="OK" Click="btnSave_Click" HorizontalAlignment="Left" Margin="127,239,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Cancel" Click="btnCancel_Click" HorizontalAlignment="Left" Margin="207,239,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

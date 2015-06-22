@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Properties="clr-namespace:SimpleCove.Properties" x:Class="SimpleCove.FtpSettings"
+        Title="FtpSettings" Height="258" Width="347" Icon="Icons/Computers.ico">
+    <Window.Resources>
+        <Properties:Settings x:Key="Settings" />
+    </Window.Resources>
+    <Grid Margin="0,0,2,0">
+
+        <TextBox x:Name="txtHost" Width="219" VerticalAlignment="Top" Text="{Binding Default.Host, Source={StaticResource Settings}}" TextWrapping="Wrap" Margin="90,22,0,0" Height="23" HorizontalAlignment="Left"/>
+        <Label Width="59" VerticalAlignment="Top" Margin="26,19,0,0" Height="26" HorizontalAlignment="Left" Content="FTP Host:"/>
+        <TextBox x:Name="txtPort" Width="75" VerticalAlignment="Top" Text="{Binding Default.Port, Source={StaticResource Settings}}" TextWrapping="Wrap" Margin="90,50,0,0" Height="23" HorizontalAlignment="Left"/>
+        <Label Width="35" VerticalAlignment="Top" Margin="50,45,0,0" Height="26" HorizontalAlignment="Left" Content="Port:"/>
+        <TextBox x:Name="txtUsername" Width="219" VerticalAlignment="Top" Text="{Binding Default.Username, Source={StaticResource Settings}}" TextWrapping="Wrap" Margin="90,87,0,0" Height="23" HorizontalAlignment="Left"/>
+        <Label Width="66" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="19,84,0,0" Height="26" HorizontalAlignment="Left" Content="Username:">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <StackPanel>
+            <PasswordBox x:Name="txtPassword" IsEnabled="False" Margin="91,120,140,0" />
+            <PasswordBox x:Name="txtConfirmPassword"  Visibility="Hidden"  Margin="91,5,140,0" />
+        </StackPanel>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="171,191,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click" Height="22"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="251,191,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" Height="22"/>
+        <Label Width="63" Name="lblConfirm"  Visibility="Hidden" VerticalAlignment="Top" Margin="29,140,0,0" Height="26" HorizontalAlignment="Left" Content="Confirm:"/>
+        <Label Width="63" VerticalAlignment="Top" Margin="22,115,0,0" Height="26" HorizontalAlignment="Left" Content="Password:"/>
+        <Label Width="95" Name="lblChangePassword" VerticalAlignment="Top" Margin="93,117,0,0" Height="26" HorizontalAlignment="Left" Content="Click to Change" MouseDown="ChangePassword_Click"/>
+
+    </Grid>
+</Window>
